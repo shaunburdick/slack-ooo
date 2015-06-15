@@ -3,7 +3,7 @@ Out of Office Bot for Slack
 
 This bot can be told when you are out of the office. It will then listen to conversations and tell users that mention you that you are not around.
 
-== Usage
+##Usage
 To use this bot, you start a conversation with it:
 ```
 Shaun Burdick [4:53 PM]
