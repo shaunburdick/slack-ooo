@@ -1,0 +1,24 @@
+{
+  "name": "slack-ooo",
+  "version": "1.0.0",
+  "description": "Slack Out of Office Message Responder",
+  "main": "release/js/app.js",
+  "scripts": {
+    "start": "node release/js/app.js",
+    "test": "node_modules/.bin/jasmine-node release/js/spec --verbose --captureExceptions"
+  },
+  "author": "Shaun Burdick <github@shaunburdick.com>",
+  "license": "MIT",
+  "dependencies": {
+    "slack-client": "^1.4.1",
+    "winston": "^1.0.0"
+  },
+  "devDependencies": {
+    "del": "^1.2.0",
+    "gulp": "^3.9.0",
+    "gulp-batch": "^1.0.5",
+    "gulp-typescript": "^2.7.6",
+    "gulp-watch": "^4.2.4",
+    "jasmine-node": "^1.14.5"
+  }
+}
