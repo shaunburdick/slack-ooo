@@ -10,6 +10,8 @@
   "author": "Shaun Burdick <github@shaunburdick.com>",
   "license": "MIT",
   "dependencies": {
+    "chrono-node": "^1.0.6",
+    "moment": "^2.10.3",
     "slack-client": "^1.4.1",
     "winston": "^1.0.0"
   },
@@ -19,6 +21,6 @@
     "gulp-batch": "^1.0.5",
     "gulp-typescript": "^2.7.6",
     "gulp-watch": "^4.2.4",
-    "jasmine-node": "^1.14.5"
+    "jasmine-node": "^2.0.0"
   }
 }
