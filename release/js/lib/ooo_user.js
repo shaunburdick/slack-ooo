@@ -141,6 +141,28 @@ var OOO_User = (function () {
                     }
             }
         }
+        // If no start/end dates, try to parse the message
+        if (retVal.hasOwnProperty(this.COMMAND_MESSAGE)) {
+            var parsedMessage = chrono.parse(message);
+            if (parsedMessage && parsedMessage[0]) {
+                if (!retVal.hasOwnProperty(this.COMMAND_START) && parsedMessage[0].start) {
+                    retVal[this.COMMAND_START] = this.setStart(parsedMessage[0].start.date().toString());
+                }
+                if (!retVal.hasOwnProperty(this.COMMAND_END)) {
+                    // check for end of first pass parsing
+                    if (parsedMessage[0].end) {
+                        retVal[this.COMMAND_END] = this.setEnd(parsedMessage[0].end.date().toString());
+                    }
+                    else {
+                        // remove first match and parse again
+                        parsedMessage = chrono.parse(message.replace(parsedMessage[0].text, ''));
+                        if (parsedMessage && parsedMessage[0] && parsedMessage[0].start) {
+                            retVal[this.COMMAND_END] = this.setEnd(parsedMessage[0].start.date().toString());
+                        }
+                    }
+                }
+            }
+        }
         return retVal;
     };
     /**

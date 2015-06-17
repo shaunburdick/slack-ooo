@@ -18,6 +18,7 @@ describe('OOO_User', function () {
             expect(user.parseDate('Next Tuesday').isValid()).toBeTruthy();
             expect(user.parseDate('Yesterday').isValid()).toBeTruthy();
             expect(user.parseDate('3pm').isValid()).toBeTruthy();
+            expect(user.parseDate('derp').isValid()).toBeFalsy();
         });
         it('should show ms since last communication', function () {
             user.last_communication = moment().subtract(10, 'minutes');
@@ -70,6 +71,12 @@ describe('OOO_User', function () {
             expect(user.parseCommands('message: foo')).toEqual({
                 message: 'foo'
             });
+        });
+        it('should parse start and end time from message', function () {
+            var message = 'message: I am OOO starting tomorrow until next Monday at 8am';
+            user.handleMessage(message);
+            expect(moment.isMoment(user.ooo_start)).toBeTruthy();
+            expect(moment.isMoment(user.ooo_end)).toBeTruthy();
         });
         it('should parse multiple commands', function () {
             expect(user.parseCommands('message: foo bar fizz buzz start: s end: e')).toEqual({
