@@ -89,6 +89,14 @@ describe ('OOO_User', () => {
       })
     })
 
+    it('should parse start and end time from message', () => {
+      var message = 'message: I am OOO starting tomorrow until next Monday at 8am';
+      user.handleMessage(message);
+
+      expect(moment.isMoment(user.ooo_start)).toBeTruthy();
+      expect(moment.isMoment(user.ooo_end)).toBeTruthy();
+    })
+
     it('should parse multiple commands', () => {
       expect(user.parseCommands('message: foo bar fizz buzz start: s end: e')).toEqual({
         message: 'foo bar fizz buzz',
