@@ -73,9 +73,6 @@ Set them using the `-e` flag while running docker:
 
 ```
 docker run -it \
--e JIRA_HOST=foo.bar.com \
--e JIRA_USER=someuser \
--e JIRA_PASS=12345 \
 -e SLACK_TOKEN=xobo-blarty-blar-blar \
 shaunburdick/slack-ooo:latest
 ```
