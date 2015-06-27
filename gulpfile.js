@@ -2,9 +2,9 @@ var gulp = require('gulp');
 var ts = require('gulp-typescript');
 var del = require('del');
 var watch = require('gulp-watch');
-var batch = require('gulp-batch')
+var batch = require('gulp-batch');
 
-gulp.task('default', ['build', 'watch']);
+gulp.task('default', ['build']);
 
 gulp.task('build', ['clean'], function() {
   var tsResult = gulp.src('src/**/*.ts')
