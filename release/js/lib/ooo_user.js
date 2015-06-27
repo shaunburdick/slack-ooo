@@ -215,6 +215,9 @@ var OOO_User = (function () {
                         logger.error("Unknown command: " + command);
                 }
             }
+            if (retVal) {
+                this.status = this.STATUS_REGISTERED;
+            }
         }
         else {
             switch (this.status) {

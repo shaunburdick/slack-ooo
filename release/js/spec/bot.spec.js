@@ -11,4 +11,15 @@ describe('Bot', function () {
         var bot = new Bot(config);
         expect(bot.config).toEqual(config);
     });
+    describe('Direct Commands', function () {
+        var bot;
+        beforeEach(function () {
+            bot = new Bot(config);
+        });
+        it('should announce offline users when asked', function () {
+            spyOn(bot, 'announceOffline');
+            bot.handleDirectCommand({}, '@bot who is offline?');
+            expect(bot.announceOffline).toHaveBeenCalled();
+        });
+    });
 });
