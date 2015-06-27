@@ -31,5 +31,6 @@
         "./typings/node/node.d.ts",
         "./typings/tsd.d.ts",
         "./typings/winston/winston.d.ts"
-    ]
+    ],
+    "compileOnSave": false
 }
