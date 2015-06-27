@@ -36,7 +36,8 @@ class OOO_User {
   /**
    * Constructor
    *
-   * @param string username the name of the user
+   * @constructor
+   * @param {string} username the name of the user
    */
   constructor(public username: string) {
     this.last_communication = moment();
@@ -45,7 +46,7 @@ class OOO_User {
   /**
    * Check if the user is out of the office
    *
-   * @return boolean
+   * @return {boolean}
    */
   isOOO(): boolean {
     var retVal = false;
@@ -62,7 +63,7 @@ class OOO_User {
   /**
    * Gets the ms since last communication
    *
-   * @return integer
+   * @return {integer}
    */
   lastCommunication(): number {
     return this.last_communication ? moment().diff(this.last_communication) : 0;
@@ -71,8 +72,8 @@ class OOO_User {
   /**
    * Set the user's OOO message and return a response
    *
-   * @param string message The message to set
-   * @return string A response for the user
+   * @param {string} message The message to set
+   * @return {string} A response for the user
    */
   setMessage(message: string): string {
     this.message = message;
@@ -83,8 +84,8 @@ class OOO_User {
   /**
    * Set the start of the user's OOO
    *
-   * @param string start A parsable date/time string
-   * @return string A response for the user
+   * @param {string} start A parsable date/time string
+   * @return {string} A response for the user
    */
   setStart(start?: string): string {
     var retVal = `Unable to parse ${start} into a valid date/time`;
@@ -107,8 +108,8 @@ class OOO_User {
   /**
    * Set the end of the user's OOO
    *
-   * @param string end A parsable date/time string
-   * @return string A response for the user
+   * @param {string} end A parsable date/time string
+   * @return {string} A response for the user
    */
   setEnd(end?: string): string {
     var retVal = `Unable to parse ${end} into a valid date/time`;
@@ -139,8 +140,8 @@ class OOO_User {
   /**
    * Parse a string into a moment date.
    *
-   * @param string strDate The date string
-   * @return Moment
+   * @param {string} strDate The date string
+   * @return {Moment}
    */
   parseDate(strDate: string): moment.Moment {
     var pDate = chrono.parseDate(strDate);
@@ -150,8 +151,8 @@ class OOO_User {
   /**
    * Parse any commands and their values from a message.
    *
-   * @param string message The raw message
-   * @return string[]
+   * @param {string} message The raw message
+   * @return {string[]}
    */
   parseCommands(message: string): { [command: string]: string } {
     var retVal: { [command: string]: string } = {};
@@ -207,7 +208,7 @@ class OOO_User {
   /**
    * Return some help flavor text.
    *
-   * @return string
+   * @return {string}
    */
   getHelp(): string {
     var retVal = '';
@@ -231,8 +232,8 @@ class OOO_User {
   /**
    * Handle a direct message to the bot
    *
-   * @param string message
-   * @return string
+   * @param {string} message
+   * @return {string}
    */
   handleMessage(message: string): string {
     var retVal = '';

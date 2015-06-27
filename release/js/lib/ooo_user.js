@@ -6,7 +6,8 @@ var OOO_User = (function () {
     /**
      * Constructor
      *
-     * @param string username the name of the user
+     * @constructor
+     * @param {string} username the name of the user
      */
     function OOO_User(username) {
         this.username = username;
@@ -28,7 +29,7 @@ var OOO_User = (function () {
     /**
      * Check if the user is out of the office
      *
-     * @return boolean
+     * @return {boolean}
      */
     OOO_User.prototype.isOOO = function () {
         var retVal = false;
@@ -42,7 +43,7 @@ var OOO_User = (function () {
     /**
      * Gets the ms since last communication
      *
-     * @return integer
+     * @return {integer}
      */
     OOO_User.prototype.lastCommunication = function () {
         return this.last_communication ? moment().diff(this.last_communication) : 0;
@@ -50,8 +51,8 @@ var OOO_User = (function () {
     /**
      * Set the user's OOO message and return a response
      *
-     * @param string message The message to set
-     * @return string A response for the user
+     * @param {string} message The message to set
+     * @return {string} A response for the user
      */
     OOO_User.prototype.setMessage = function (message) {
         this.message = message;
@@ -60,8 +61,8 @@ var OOO_User = (function () {
     /**
      * Set the start of the user's OOO
      *
-     * @param string start A parsable date/time string
-     * @return string A response for the user
+     * @param {string} start A parsable date/time string
+     * @return {string} A response for the user
      */
     OOO_User.prototype.setStart = function (start) {
         var retVal = "Unable to parse " + start + " into a valid date/time";
@@ -81,8 +82,8 @@ var OOO_User = (function () {
     /**
      * Set the end of the user's OOO
      *
-     * @param string end A parsable date/time string
-     * @return string A response for the user
+     * @param {string} end A parsable date/time string
+     * @return {string} A response for the user
      */
     OOO_User.prototype.setEnd = function (end) {
         var retVal = "Unable to parse " + end + " into a valid date/time";
@@ -111,8 +112,8 @@ var OOO_User = (function () {
     /**
      * Parse a string into a moment date.
      *
-     * @param string strDate The date string
-     * @return Moment
+     * @param {string} strDate The date string
+     * @return {Moment}
      */
     OOO_User.prototype.parseDate = function (strDate) {
         var pDate = chrono.parseDate(strDate);
@@ -121,8 +122,8 @@ var OOO_User = (function () {
     /**
      * Parse any commands and their values from a message.
      *
-     * @param string message The raw message
-     * @return string[]
+     * @param {string} message The raw message
+     * @return {string[]}
      */
     OOO_User.prototype.parseCommands = function (message) {
         var retVal = {};
@@ -168,7 +169,7 @@ var OOO_User = (function () {
     /**
      * Return some help flavor text.
      *
-     * @return string
+     * @return {string}
      */
     OOO_User.prototype.getHelp = function () {
         var retVal = '';
@@ -189,8 +190,8 @@ var OOO_User = (function () {
     /**
      * Handle a direct message to the bot
      *
-     * @param string message
-     * @return string
+     * @param {string} message
+     * @return {string}
      */
     OOO_User.prototype.handleMessage = function (message) {
         var retVal = '';

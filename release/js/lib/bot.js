@@ -6,7 +6,8 @@ var Bot = (function () {
     /**
      * Constructor.
      *
-     * @param object config The final configuration for the bot
+     * @constructor
+     * @param {object} config The final configuration for the bot
      */
     function Bot(config) {
         this.config = config;
@@ -17,8 +18,8 @@ var Bot = (function () {
     /**
      * Announce offline users.
      *
-     * @param string[] users Limit announcement to users
-     * @return string
+     * @param {string[]} users Limit announcement to users
+     * @return {string}
      */
     Bot.prototype.announceOffline = function (users) {
         var retVal = 'The following users are out of office:\n';
@@ -35,9 +36,9 @@ var Bot = (function () {
     /**
      * Handle direct commands
      *
-     * @param object channel
-     * @param string message
-     * @return string
+     * @param {object} channel
+     * @param {string} message
+     * @return {string}
      */
     Bot.prototype.handleDirectCommand = function (channel, message) {
         var retVal = '';
@@ -74,17 +75,17 @@ var Bot = (function () {
     };
     /**
      * Handle an incoming message
-     * @param object message The incoming message from Slack
+     * @param {object} message The incoming message from Slack
      */
     Bot.prototype.handleMessage = function (message) {
         var channel = this.slack.getChannelGroupOrDMByID(message.channel);
         var user = this.slack.getUserByID(message.user);
         var response = '';
         var type = message.type, ts = message.ts, text = message.text;
-        var channelName = (channel != null ? channel.is_channel : void 0) ? '#' : '';
+        var channelName = (channel && channel.is_channel) ? '#' : '';
         channelName = channelName + (channel ? channel.name : 'UNKNOWN_CHANNEL');
-        var userName = (user != null ? user.name : void 0) != null ? "@" + user.name : "UNKNOWN_USER";
-        if (type === 'message' && (text != null) && (channel != null)) {
+        var userName = (user && user.name) ? "@" + user.name : "UNKNOWN_USER";
+        if (type === 'message' && (text !== null) && (channel !== null)) {
             // Channel is a direct message
             if (channel.is_im) {
                 logger.info("" + userName + " sent DM: " + text);
@@ -128,8 +129,8 @@ var Bot = (function () {
         }
         else {
             var typeError = type !== 'message' ? "unexpected type " + type + "." : null;
-            var textError = text == null ? 'text was undefined.' : null;
-            var channelError = channel == null ? 'channel was undefined.' : null;
+            var textError = text === null ? 'text was undefined.' : null;
+            var channelError = channel === null ? 'channel was undefined.' : null;
             var errors = [typeError, textError, channelError].filter(function (element) {
                 return element !== null;
             }).join(' ');

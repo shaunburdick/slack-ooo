@@ -18,7 +18,8 @@ class Bot {
   /**
    * Constructor.
    *
-   * @param object config The final configuration for the bot
+   * @constructor
+   * @param {object} config The final configuration for the bot
    */
   constructor(public config: Config) {
     this.slack = new Slack(
@@ -31,8 +32,8 @@ class Bot {
   /**
    * Announce offline users.
    *
-   * @param string[] users Limit announcement to users
-   * @return string
+   * @param {string[]} users Limit announcement to users
+   * @return {string}
    */
   announceOffline(users?: string[]): string {
     var retVal = 'The following users are out of office:\n';
@@ -55,9 +56,9 @@ class Bot {
   /**
    * Handle direct commands
    *
-   * @param object channel
-   * @param string message
-   * @return string
+   * @param {object} channel
+   * @param {string} message
+   * @return {string}
    */
   handleDirectCommand(channel: Object, message: string): string {
     var retVal = '';
@@ -101,18 +102,18 @@ class Bot {
 
   /**
    * Handle an incoming message
-   * @param object message The incoming message from Slack
+   * @param {object} message The incoming message from Slack
    */
   handleMessage(message: any): void {
     var channel = this.slack.getChannelGroupOrDMByID(message.channel);
     var user = this.slack.getUserByID(message.user);
     var response = '';
     var type:string = message.type, ts:number = message.ts, text:string = message.text;
-    var channelName:string = (channel != null ? channel.is_channel : void 0) ? '#' : '';
+    var channelName:string = (channel && channel.is_channel) ? '#' : '';
     channelName = channelName + (channel ? channel.name : 'UNKNOWN_CHANNEL');
-    var userName:string = (user != null ? user.name : void 0) != null ? `@${user.name}` : "UNKNOWN_USER";
+    var userName:string = (user && user.name) ? `@${user.name}` : "UNKNOWN_USER";
 
-    if (type === 'message' && (text != null) && (channel != null)) {
+    if (type === 'message' && (text !== null) && (channel !== null)) {
       // Channel is a direct message
       if (channel.is_im) {
         logger.info(`${userName} sent DM: ${text}`);
@@ -158,8 +159,8 @@ class Bot {
       }
     } else {
       var typeError = type !== 'message' ? `unexpected type ${type}.` : null;
-      var textError = text == null ? 'text was undefined.' : null;
-      var channelError = channel == null ? 'channel was undefined.' : null;
+      var textError = text === null ? 'text was undefined.' : null;
+      var channelError = channel === null ? 'channel was undefined.' : null;
       var errors = [typeError, textError, channelError].filter(function(element) {
         return element !== null;
       }).join(' ');
