@@ -5,20 +5,21 @@ This bot can be told when you are out of the office. It will then listen to conv
 
 ##Usage
 To use this bot, you start a conversation with it:
+
 ```
-Shaun Burdick [5:29 PM] 
+Shaun Burdick [5:29 PM]
 hi
 
-OOO BotBOT [5:29 PM] 
+OOO BotBOT [5:29 PM]
 Hello and welcome to Out of Office Bot!
 You can ask for help at any time by saying `help`
 
 I don't have you as out of office. Would you like to set yourself Out of Office? [Yes/No]
 
-Shaun Burdick [5:29 PM] 
+Shaun Burdick [5:29 PM]
 help
 
-OOO BotBOT [5:29 PM] 
+OOO BotBOT [5:29 PM]
 *Out of Office Bot*
 
 I can keep track of when you are out of the office and tell people that mention you.
@@ -35,10 +36,10 @@ To return to the office once you are back, say hello again!
 - end:     _string_, A parsable date/time string when your Out of Office ends
           Example: `end: 2015-06-06 16:00`
 
-Shaun Burdick [5:29 PM] 
+Shaun Burdick [5:29 PM]
 ok, start: tomorrow end: next monday at 8am message: I will be out until next week
 
-OOO BotBOT [5:29 PM] 
+OOO BotBOT [5:29 PM]
 -You will be marked Out of Office at Tomorrow at 12:00 PM
 -You are marked Out of Office returning on Monday at 8:00 AM
 -Setting your OOO Message to:

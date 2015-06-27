@@ -33,6 +33,20 @@ var Bot = (function () {
         return found ? retVal : '';
     };
     /**
+     * Handle direct commands
+     *
+     * @param object channel
+     * @param string message
+     * @return string
+     */
+    Bot.prototype.handleDirectCommand = function (channel, message) {
+        var retVal = '';
+        if (message.match(/who/i)) {
+            retVal = this.announceOffline();
+        }
+        return retVal;
+    };
+    /**
      * Function to be called on slack open
      */
     Bot.prototype.slackOpen = function () {
@@ -71,6 +85,7 @@ var Bot = (function () {
         channelName = channelName + (channel ? channel.name : 'UNKNOWN_CHANNEL');
         var userName = (user != null ? user.name : void 0) != null ? "@" + user.name : "UNKNOWN_USER";
         if (type === 'message' && (text != null) && (channel != null)) {
+            // Channel is a direct message
             if (channel.is_im) {
                 logger.info("" + userName + " sent DM: " + text);
                 if (!this.ooo_users[userName]) {
@@ -86,6 +101,7 @@ var Bot = (function () {
                 // Search message for user mentions
                 var matches = text.match(/@\w+/g);
                 if (matches) {
+                    // Need to translate user id to username
                     var translatedUsers = [], matchedUser;
                     for (var x in matches) {
                         matchedUser = this.slack.getUserByID(matches[x].replace('@', ''));
@@ -93,10 +109,19 @@ var Bot = (function () {
                             translatedUsers.push("@" + matchedUser.name);
                         }
                     }
-                    response = this.announceOffline(translatedUsers);
-                    if (response) {
-                        channel.send(response);
-                        logger.info("@" + this.slack.self.name + " responded with \"" + response + "\"");
+                    if (translatedUsers) {
+                        // If we are the mentioned user
+                        if (translatedUsers.indexOf("@" + this.slack.self.name) !== -1) {
+                            response = this.handleDirectCommand(channel, text);
+                        }
+                        else {
+                            // Get OOO responses for users
+                            response = this.announceOffline(translatedUsers);
+                        }
+                        if (response) {
+                            channel.send(response);
+                            logger.info("@" + this.slack.self.name + " responded with \"" + response + "\"");
+                        }
                     }
                 }
             }
