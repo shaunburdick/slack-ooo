@@ -3,7 +3,7 @@
 import OOO_User = require('../lib/ooo_user');
 import moment = require('moment');
 
-describe ('OOO_User', () => {
+describe('OOO_User', () => {
   it('should instantiate and set username', () => {
     var user = new OOO_User('foo');
     expect(user.username).toEqual('foo');

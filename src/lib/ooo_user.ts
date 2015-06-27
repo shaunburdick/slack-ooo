@@ -38,7 +38,7 @@ class OOO_User {
    *
    * @param string username the name of the user
    */
-  constructor (public username: string) {
+  constructor(public username: string) {
     this.last_communication = moment();
   }
 
@@ -47,7 +47,7 @@ class OOO_User {
    *
    * @return boolean
    */
-  isOOO (): boolean {
+  isOOO(): boolean {
     var retVal = false;
 
     var now = moment();
@@ -64,7 +64,7 @@ class OOO_User {
    *
    * @return integer
    */
-  lastCommunication (): number {
+  lastCommunication(): number {
     return this.last_communication ? moment().diff(this.last_communication) : 0;
   }
 
@@ -74,7 +74,7 @@ class OOO_User {
    * @param string message The message to set
    * @return string A response for the user
    */
-  setMessage (message: string): string {
+  setMessage(message: string): string {
     this.message = message;
 
     return `Setting your OOO Message to:\n${message}`;
@@ -86,7 +86,7 @@ class OOO_User {
    * @param string start A parsable date/time string
    * @return string A response for the user
    */
-  setStart (start?: string): string {
+  setStart(start?: string): string {
     var retVal = `Unable to parse ${start} into a valid date/time`;
     var time: moment.Moment;
 
@@ -142,7 +142,7 @@ class OOO_User {
    * @param string strDate The date string
    * @return Moment
    */
-  parseDate (strDate: string): moment.Moment {
+  parseDate(strDate: string): moment.Moment {
     var pDate = chrono.parseDate(strDate);
     return pDate ? moment(pDate) : moment.invalid();
   }
@@ -153,7 +153,7 @@ class OOO_User {
    * @param string message The raw message
    * @return string[]
    */
-  parseCommands (message: string): { [command: string]: string } {
+  parseCommands(message: string): { [command: string]: string } {
     var retVal: { [command: string]: string } = {};
 
     var splits = message.split(/(start:|end:|message:)/);
@@ -209,7 +209,7 @@ class OOO_User {
    *
    * @return string
    */
-  getHelp (): string {
+  getHelp(): string {
     var retVal = '';
 
     retVal = '*Out of Office Bot*\n\n';
@@ -234,7 +234,7 @@ class OOO_User {
    * @param string message
    * @return string
    */
-  handleMessage (message: string): string {
+  handleMessage(message: string): string {
     var retVal = '';
     var commands = this.parseCommands(message);
 

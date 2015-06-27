@@ -20,7 +20,7 @@ class Bot {
    *
    * @param object config The final configuration for the bot
    */
-  constructor (public config: Config) {
+  constructor(public config: Config) {
     this.slack = new Slack(
       config.slack.token,
       config.slack.autoReconnect,
@@ -34,7 +34,7 @@ class Bot {
    * @param string[] users Limit announcement to users
    * @return string
    */
-  announceOffline (users?: string[]): string {
+  announceOffline(users?: string[]): string {
     var retVal = 'The following users are out of office:\n';
     var found = false;
 
@@ -59,7 +59,7 @@ class Bot {
    * @param string message
    * @return string
    */
-  handleDirectCommand (channel: Object, message: string): string {
+  handleDirectCommand(channel: Object, message: string): string {
     var retVal = '';
 
     if (message.match(/who/i)) {
@@ -72,7 +72,7 @@ class Bot {
   /**
    * Function to be called on slack open
    */
-  slackOpen (): void {
+  slackOpen(): void {
     var unreads = this.slack.getUnreadCount();
 
     var id: string;
@@ -103,7 +103,7 @@ class Bot {
    * Handle an incoming message
    * @param object message The incoming message from Slack
    */
-  handleMessage (message: any): void {
+  handleMessage(message: any): void {
     var channel = this.slack.getChannelGroupOrDMByID(message.channel);
     var user = this.slack.getUserByID(message.user);
     var response = '';
@@ -170,7 +170,7 @@ class Bot {
   /**
    * Start the bot
    */
-  start (): void {
+  start(): void {
     var self = this;
     this.slack.on('open', function() {
       self.slackOpen();

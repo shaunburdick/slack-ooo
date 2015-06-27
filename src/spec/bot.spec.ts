@@ -4,7 +4,7 @@ import Bot = require('../lib/bot');
 import Config = require('../lib/ConfigInterface');
 var config_dist: Config = require('../config.default.js');
 
-describe ('Bot', () => {
+describe('Bot', () => {
   var config: Config;
 
   beforeEach(() => {
