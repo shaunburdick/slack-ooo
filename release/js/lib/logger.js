@@ -1,5 +1,10 @@
 /// <reference path="../typings/tsd.d.ts" />
 var winston = require('winston');
+/**
+ * Logger bootstrap.
+ *
+ * @module Logger
+ */
 var logger = new winston.Logger({
     transports: [
         new (winston.transports.Console)({

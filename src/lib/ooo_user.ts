@@ -4,6 +4,9 @@ import logger = require('./logger');
 import moment = require('moment');
 var chrono = require('chrono-node');
 
+/**
+ * @module OOO_User
+ */
 class OOO_User {
   STATUS_UNCONFIRMED            = 'unconfirmed';
   STATUS_AWAITING_CONFIRMATION  = 'awaiting_confirmation';

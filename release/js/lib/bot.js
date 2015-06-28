@@ -2,6 +2,9 @@
 var Slack = require('slack-client');
 var logger = require('./logger');
 var OOO_User = require('./ooo_user');
+/**
+ * @module Bot
+ */
 var Bot = (function () {
     /**
      * Constructor.

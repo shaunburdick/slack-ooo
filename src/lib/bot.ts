@@ -7,6 +7,9 @@ import logger = require('./logger');
 import Config = require('./ConfigInterface');
 import OOO_User = require('./ooo_user');
 
+/**
+ * @module Bot
+ */
 class Bot {
   /** Slack object */
   slack: any;

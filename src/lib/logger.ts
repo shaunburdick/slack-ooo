@@ -2,6 +2,11 @@
 
 import winston = require('winston');
 
+/**
+ * Logger bootstrap.
+ *
+ * @module Logger
+ */
 var logger: winston.LoggerInstance = new winston.Logger({
   transports: [
     new (winston.transports.Console)({

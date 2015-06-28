@@ -3,10 +3,13 @@ var ts = require('gulp-typescript');
 var del = require('del');
 var watch = require('gulp-watch');
 var batch = require('gulp-batch');
+var jsdoc = require("gulp-jsdoc");
 
 gulp.task('default', ['build']);
 
-gulp.task('build', ['clean'], function() {
+gulp.task('build', ['compile']);
+
+gulp.task('compile', ['clean'], function() {
   var tsResult = gulp.src('src/**/*.ts')
     .pipe(ts({
       // noImplicitAny: true,
@@ -16,6 +19,12 @@ gulp.task('build', ['clean'], function() {
     }));
 
   return tsResult.js.pipe(gulp.dest('release/js'));
+});
+
+gulp.task('doc', function() {
+  gulp.src(['release/js/**/*.js', 'README.md'])
+    .pipe(jsdoc.parser())
+    .pipe(jsdoc.generator('./doc'));
 });
 
 gulp.task('clean', function(cb) {

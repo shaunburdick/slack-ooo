@@ -8,6 +8,10 @@
     "test": "node_modules/.bin/jasmine-node release/js/spec --verbose --captureExceptions"
   },
   "author": "Shaun Burdick <github@shaunburdick.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shaunburdick/slack-ooo.git"
+  },
   "license": "MIT",
   "dependencies": {
     "chrono-node": "^1.0.6",
@@ -21,6 +25,7 @@
     "gulp-batch": "^1.0.5",
     "gulp-typescript": "^2.7.6",
     "gulp-watch": "^4.2.4",
-    "jasmine-node": "^2.0.0"
+    "jasmine-node": "^2.0.0",
+    "gulp-jsdoc": "^0.1.4"
   }
 }

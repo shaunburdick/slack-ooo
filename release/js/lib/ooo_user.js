@@ -2,6 +2,9 @@
 var logger = require('./logger');
 var moment = require('moment');
 var chrono = require('chrono-node');
+/**
+ * @module OOO_User
+ */
 var OOO_User = (function () {
     /**
      * Constructor
