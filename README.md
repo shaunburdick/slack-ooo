@@ -3,6 +3,8 @@ Out of Office Bot for Slack
 
 This bot can be told when you are out of the office. It will then listen to conversations and tell users that mention you that you are not around.
 
+If you want a personal OoO bot that acts as you, check out [shaunburdick/slack-ooo-personal](https://github.com/shaunburdick/slack-ooo-personal)!
+
 ##Usage
 To use this bot, you start a conversation with it:
 
