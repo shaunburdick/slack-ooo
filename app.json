@@ -1,0 +1,30 @@
+{
+  "name": "Slack OOO",
+  "description": "Slack Out of Office Message Responder",
+  "keywords": [
+    "slack",
+    "bot",
+    "ooo",
+    "out of office"
+  ],
+  "repository": "https://github.com/shaunburdick/slack-ooo",
+  "env": {
+    "SLACK_TOKEN": {
+      "description": "Your Slack token"
+    },
+    "SLACK_AUTO_RECONNECT": {
+      "description": "Reconnect on disconnect",
+      "value": "true"
+    },
+    "NODE_ENV": {
+      "value": "production"
+    }
+  },
+  "image": "heroku/nodejs",
+  "formation": {
+    "bot": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}
