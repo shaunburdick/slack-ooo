@@ -7,7 +7,7 @@
     "test": "npm run lint && npm run unit",
     "unit": "nyc --all tape ./test/*.test.js | faucet && nyc report",
     "doc": "jsdoc -c ./.jsdocrc .",
-    "start": "node app.js",
+    "start": "node index.js",
     "lint": "semistandard --verbose | snazzy",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
@@ -21,6 +21,7 @@
     "botkit": "^0.2.2",
     "chrono-node": "^1.0.8",
     "moment": "^2.10.6",
+    "redact-object": "^2.0.0",
     "winston": "^2.2.0"
   },
   "devDependencies": {

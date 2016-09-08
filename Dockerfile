@@ -2,6 +2,8 @@ FROM rezzza/docker-node:latest
 
 MAINTAINER Shaun Burdick <docker@shaunburdick.com>
 
+RUN apk add -U tzdata
+
 ENV NODE_ENV=production \
     SLACK_TOKEN=xoxb-foo \
     SLACK_AUTO_RECONNECT=true \
