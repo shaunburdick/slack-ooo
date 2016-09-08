@@ -1,31 +1,47 @@
 {
   "name": "slack-ooo",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Slack Out of Office Message Responder",
-  "main": "release/js/app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node release/js/app.js",
-    "test": "node_modules/.bin/jasmine-node release/js/spec --verbose --captureExceptions"
+    "test": "npm run lint && npm run unit",
+    "unit": "nyc --all tape ./test/*.test.js | faucet && nyc report",
+    "doc": "jsdoc -c ./.jsdocrc .",
+    "start": "node index.js",
+    "lint": "semistandard --verbose | snazzy",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "author": "Shaun Burdick <github@shaunburdick.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/shaunburdick/slack-ooo.git"
   },
-  "license": "MIT",
+  "license": "GPL-3.0",
   "dependencies": {
-    "chrono-node": "^1.0.6",
-    "moment": "^2.10.3",
-    "slack-client": "^1.4.1",
-    "winston": "^1.0.0"
+    "botkit": "^0.2.2",
+    "chrono-node": "^1.0.8",
+    "moment": "^2.10.6",
+    "redact-object": "^2.0.0",
+    "winston": "^2.2.0"
   },
   "devDependencies": {
-    "del": "^1.2.0",
-    "gulp": "^3.9.0",
-    "gulp-batch": "^1.0.5",
-    "gulp-typescript": "^2.7.6",
-    "gulp-watch": "^4.2.4",
-    "jasmine-node": "^2.0.0",
-    "gulp-jsdoc": "^0.1.4"
+    "coveralls": "^2.11.12",
+    "faucet": "0.0.1",
+    "jsdoc": "^3.4.0",
+    "nyc": "^8.1.0",
+    "semistandard": "^9.0.0",
+    "snazzy": "^4.0.1",
+    "tape": "^4.6.0"
+  },
+  "semistandard": {
+    "ignore": [
+      "coverage",
+      "doc"
+    ]
+  },
+  "nyc": {
+    "include": [
+      "lib/**/*.js"
+    ]
   }
 }

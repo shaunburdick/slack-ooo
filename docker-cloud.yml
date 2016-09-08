@@ -1,0 +1,6 @@
+bot:
+  image: shaunburdick/slack-ooo
+  restart: on-failure
+  environment:
+    SLACK_TOKEN: 'xoxb-foo'
+    SLACK_AUTO_RECONNECT: true

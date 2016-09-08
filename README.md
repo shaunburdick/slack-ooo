@@ -1,9 +1,14 @@
 Out of Office Bot for Slack
 ===========================
 
+[![Build Status](https://travis-ci.org/shaunburdick/slack-ooo.svg?branch=master)](https://travis-ci.org/shaunburdick/slack-ooo) [![Docker Pulls](https://img.shields.io/docker/pulls/shaunburdick/slack-ooo.svg?maxAge=2592000)](https://hub.docker.com/r/shaunburdick/slack-ooo/)
+[![Coverage Status](https://coveralls.io/repos/github/shaunburdick/slack-ooo/badge.svg?branch=update-dep)](https://coveralls.io/github/shaunburdick/slack-ooo?branch=update-dep) [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-round)](https://github.com/Flet/semistandard)
+
+[![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/shaunburdick/slack-ooo) [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 This bot can be told when you are out of the office. It will then listen to conversations and tell users that mention you that you are not around.
 
-If you want a personal OoO bot that acts as you, check out [shaunburdick/slack-ooo-personal](https://github.com/shaunburdick/slack-ooo-personal)!
+**If you want a personal OoO bot that acts as you, check out [shaunburdick/slack-ooo-personal](https://github.com/shaunburdick/slack-ooo-personal)!**
 
 ##Usage
 To use this bot, you start a conversation with it:
@@ -51,7 +56,7 @@ I will be out until next week
 ## Install
 1. Clone this [repository](https://github.com/shaunburdick/slack-ooo.git)
 2. `npm install`
-3. Copy `./release/js/config.default.js` to `./release/js/config.js` and fill it out
+3. Copy `config.default.js` to `config.js` and fill it out
 4. `npm start`
 
 ## Test
@@ -70,7 +75,6 @@ You can set the configuration of the bot by using environment variables.
 
 - *SLACK_TOKEN*=xoxb-foo, Your Slack Token
 - *SLACK_AUTO_RECONNECT*=true, Reconnect on disconnect
-- *SLACK_AUTO_MARK*=true, Mark messages as read
 
 Set them using the `-e` flag while running docker:
 
@@ -79,3 +83,11 @@ docker run -it \
 -e SLACK_TOKEN=xobo-blarty-blar-blar \
 shaunburdick/slack-ooo:latest
 ```
+
+## Contributing
+1. Create a new branch, please don't work in master directly.
+2. Add failing tests for the change you want to make (if appliciable). Run `npm test` to see the tests fail.
+3. Fix stuff.
+4. Run `npm test` to see if the tests pass. Repeat steps 2-4 until done.
+5. Update the documentation to reflect any changes.
+6. Push to your fork and submit a pull request.
