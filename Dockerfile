@@ -6,8 +6,7 @@ RUN apk add -U tzdata
 
 ENV NODE_ENV=production \
     SLACK_TOKEN=xoxb-foo \
-    SLACK_AUTO_RECONNECT=true \
-    SLACK_AUTO_MARK=true
+    SLACK_AUTO_RECONNECT=true
 
 ADD . /usr/src/myapp
 
