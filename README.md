@@ -2,7 +2,7 @@ Out of Office Bot for Slack
 ===========================
 
 [![Build Status](https://travis-ci.org/shaunburdick/slack-ooo.svg?branch=master)](https://travis-ci.org/shaunburdick/slack-ooo) [![Docker Pulls](https://img.shields.io/docker/pulls/shaunburdick/slack-ooo.svg?maxAge=2592000)](https://hub.docker.com/r/shaunburdick/slack-ooo/)
-[![Coverage Status](https://coveralls.io/repos/github/shaunburdick/slack-ooo/badge.svg?branch=update-dep)](https://coveralls.io/github/shaunburdick/slack-ooo?branch=update-dep) [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-round)](https://github.com/Flet/semistandard)
+[![Coverage Status](https://coveralls.io/repos/github/shaunburdick/slack-ooo/badge.svg)](https://coveralls.io/github/shaunburdick/slack-ooo) [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-round)](https://github.com/Flet/semistandard)
 
 [![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/shaunburdick/slack-ooo) [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
