@@ -16,7 +16,7 @@
     "APP_ANNOUNCE_CHANNELS": {
       "description": "A list of channels to announce OoO users on",
       "value": "general"
-    }
+    },
     "SLACK_TOKEN": {
       "description": "Your Slack token"
     },
