@@ -28,6 +28,16 @@ test('Config: pass the original value if not a string', (assert) => {
   assert.end();
 });
 
+test('Config: Parse a list from a comma separated list', (assert) => {
+  assert.deepEqual(
+    Config.parseList('foo, bar,fizz,buzz  '),
+    ['foo', 'bar', 'fizz', 'buzz'],
+    'Parse a list into an array'
+  );
+
+  assert.end();
+});
+
 test('Config: parse default config as is', (assert) => {
   assert.equal(Config.parse(rawConfig), rawConfig);
   assert.end();

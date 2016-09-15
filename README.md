@@ -73,6 +73,8 @@ Official Image [shaunburdick/slack-ooo](https://registry.hub.docker.com/u/shaunb
 You can set the configuration of the bot by using environment variables.
 *ENVIRONMENT_VARIABLE*=Default Value
 
+- *APP_ANNOUNCE_CHANNELS*=general,random, A list of channels to announce OoO on
+- *APP_ANNOUNCE_TIMES*=08:00,16:00, A list of times to announce OoO users
 - *SLACK_TOKEN*=xoxb-foo, Your Slack Token
 - *SLACK_AUTO_RECONNECT*=true, Reconnect on disconnect
 
