@@ -10,7 +10,12 @@ This bot can be told when you are out of the office. It will then listen to conv
 
 **If you want a personal OoO bot that acts as you, check out [shaunburdick/slack-ooo-personal](https://github.com/shaunburdick/slack-ooo-personal)!**
 
-##Usage
+## Features
+- Users set themselve out of the office by talking to the bot
+- When a user that is set out of office is mentioned in a channel the bot is in, it will send a message to that channel that the user if out of the office and display their out of office message
+- The bot can be configured to announce out of office users to specific channels on specific times (bot must be in that channel to make the announcement)
+
+## Usage
 To use this bot, you start a conversation with it:
 
 ```
@@ -53,6 +58,14 @@ OOO BotBOT [5:29 PM]
 I will be out until next week
 ```
 
+## Announcements
+The bot can announce which users are out of office on a schedule. To enable this feature, you need to provide the bot with a list of channels to make the announcement and at what times (local to bot).
+- **app.announce.channels**: this is an array of channel names to announce to
+  - The bot *must* be a member of the channel in order to make the announcements
+  - channels names *must* not contain the starting `#`
+- **app.announce.times**: this is an array of times each day to make the announcement
+  - Each time will be considered as 24-hour time, (ie `13:00` is 1:00 pm)
+
 ## Install
 1. Clone this [repository](https://github.com/shaunburdick/slack-ooo.git)
 2. `npm install`
@@ -73,6 +86,8 @@ Official Image [shaunburdick/slack-ooo](https://registry.hub.docker.com/u/shaunb
 You can set the configuration of the bot by using environment variables.
 *ENVIRONMENT_VARIABLE*=Default Value
 
+- *APP_ANNOUNCE_CHANNELS*=general,random, A list of channels to announce OoO on
+- *APP_ANNOUNCE_TIMES*=08:00,16:00, A list of times to announce OoO users
 - *SLACK_TOKEN*=xoxb-foo, Your Slack Token
 - *SLACK_AUTO_RECONNECT*=true, Reconnect on disconnect
 

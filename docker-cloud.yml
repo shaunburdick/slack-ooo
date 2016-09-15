@@ -4,3 +4,5 @@ bot:
   environment:
     SLACK_TOKEN: 'xoxb-foo'
     SLACK_AUTO_RECONNECT: true
+    APP_ANNOUNCE_CHANNELS: ''
+    APP_ANNOUNCE_TIMES: ''

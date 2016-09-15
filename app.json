@@ -9,6 +9,14 @@
   ],
   "repository": "https://github.com/shaunburdick/slack-ooo",
   "env": {
+    "APP_ANNOUNCE_TIMES": {
+      "description": "A list of times to announce OoO users",
+      "value": "08:00, 16:00"
+    },
+    "APP_ANNOUNCE_CHANNELS": {
+      "description": "A list of channels to announce OoO users on",
+      "value": "general"
+    },
     "SLACK_TOKEN": {
       "description": "Your Slack token"
     },
