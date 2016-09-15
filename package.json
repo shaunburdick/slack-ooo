@@ -1,6 +1,6 @@
 {
   "name": "slack-ooo",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Slack Out of Office Message Responder",
   "main": "index.js",
   "scripts": {
