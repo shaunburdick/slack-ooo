@@ -30,18 +30,18 @@ test('Bot: Find ms until next time', (assert) => {
 
   // rounding because we are rarely on the minute
   assert.equal(
-    Math.round(bot.msTillNextTime(times) / 100000), 36,
+    Math.ceil(bot.msTillNextTime(times) / 100000), 36,
     'Next time should be about an hour away'
   );
 
   times.splice(4, 1); // remove one hour time
   assert.equal(
-    Math.round(bot.msTillNextTime(times) / 100000), 72,
+    Math.ceil(bot.msTillNextTime(times) / 100000), 72,
     'Next time should be about two hours away'
   );
 
   assert.equal(
-    Math.round(bot.msTillNextTime(times.slice(0, 4)) / 1000000), 72,
+    Math.ceil(bot.msTillNextTime(times.slice(0, 4)) / 1000000), 72,
     'Next time should be about 20 hours away'
   );
 
