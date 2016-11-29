@@ -69,7 +69,7 @@ The bot can announce which users are out of office on a schedule. To enable this
 ## Install
 1. Clone this [repository](https://github.com/shaunburdick/slack-ooo.git)
 2. `npm install`
-3. Copy `config.default.js` to `config.js` and fill it out
+3. Copy `./config.default.js` to `./config.js` (the same root directory) and fill it out
 4. `npm start`
 
 ## Test
